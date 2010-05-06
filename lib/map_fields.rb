@@ -1,4 +1,9 @@
-require 'fastercsv'
+if RUBY_VERSION >= '1.9'
+  require 'csv'
+  FasterCSV = CSV
+else
+  require 'fastercsv'
+end
 
 module MapFields
   VERSION = '1.0.0'
