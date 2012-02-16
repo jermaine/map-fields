@@ -7,7 +7,7 @@ describe TestController do
       before do
         test_file  = ActionController::TestUploadedFile.new(File.join(File.dirname(__FILE__), '..', 'test-file.csv'))
 
-        File.should_receive(:open) do |path, flags| 
+        File.should_receive(:open) do |path, flags|
           path.should match(Regexp.new(Dir::tmpdir))
           flags.should == 'wb'
         end
@@ -24,7 +24,7 @@ describe TestController do
         session[:map_fields][:file].should_not be_blank
       end
 
-      it "should assign to @parameters" do 
+      it "should assign to @parameters" do
         assigns[:parameters].should_not be_blank
       end
 
